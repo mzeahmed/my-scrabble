@@ -1,7 +1,8 @@
 import Board from './Board';
 
-export default class Scrabble {
+export default class StartScrabble {
   constructor () {
     this.board = new Board();
+    
   }
 }

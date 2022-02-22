@@ -9,9 +9,9 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_Scrabble__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/Scrabble */ "./src/modules/Scrabble.js");
+/* harmony import */ var _modules_StartScrabble__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/StartScrabble */ "./src/modules/StartScrabble.js");
 
-new _modules_Scrabble__WEBPACK_IMPORTED_MODULE_0__["default"]();
+new _modules_StartScrabble__WEBPACK_IMPORTED_MODULE_0__["default"]();
 
 /***/ }),
 
@@ -85,15 +85,15 @@ var Board = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "./src/modules/Scrabble.js":
-/*!*********************************!*\
-  !*** ./src/modules/Scrabble.js ***!
-  \*********************************/
+/***/ "./src/modules/StartScrabble.js":
+/*!**************************************!*\
+  !*** ./src/modules/StartScrabble.js ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Scrabble)
+/* harmony export */   "default": () => (/* binding */ StartScrabble)
 /* harmony export */ });
 /* harmony import */ var _Board__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Board */ "./src/modules/Board.js");
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -104,8 +104,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
 
-var Scrabble = /*#__PURE__*/_createClass(function Scrabble() {
-  _classCallCheck(this, Scrabble);
+var StartScrabble = /*#__PURE__*/_createClass(function StartScrabble() {
+  _classCallCheck(this, StartScrabble);
 
   this.board = new _Board__WEBPACK_IMPORTED_MODULE_0__["default"]();
 });

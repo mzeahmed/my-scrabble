@@ -1,3 +1,48 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+body #points {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  font-size: 25px;
+  color: gray;
+  border: 1px solid gray;
+  background-color: #fff;
+  position: absolute;
+  bottom: 100px;
+}
+body #board_container {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  grid-gap: 3px;
+  border: 1px solid black;
+  width: calc(100% - 20px);
+  max-width: 400px;
+  min-width: 250px;
+  height: 100%;
+  max-height: 400px;
+  min-height: 250px;
+  background-color: #EFE7E5;
+  margin: 10px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
 body #board_container .center-row {
-  background-color: aquamarine;
+  background-color: #BBEC69;
 }

@@ -1,3 +1,3 @@
-import Scrabble from './modules/Scrabble';
+import StartScrabble from './modules/StartScrabble';
 
-new Scrabble();
+new StartScrabble();
