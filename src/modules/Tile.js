@@ -1,5 +1,5 @@
 export default class Tile {
-  constructor (letter, points, notFreeRow, freeRow) {
+  constructor (letter, notFreeRow, freeRow) {
     this.letter = letter;
     this.notFreeRow = notFreeRow;
     this.freeRow = freeRow;
@@ -101,16 +101,24 @@ export default class Tile {
     this.elem.addEventListener('mousedown', (ev) => {
       this.grab(ev.clientX, ev.clientY);
     });
-    document.body.addEventListener('mousemove', ((ev) => {
+
+    document.body.addEventListener('mousemove', (ev) => {
       this.move(ev.clientX, ev.clientY);
-    }));
+    });
+
     document.body.addEventListener('mouseup', this.release.bind(this));
 
-    this.elem.addEventListener('touchstart', e => {this.grab(e.touches[0].clientX, e.touches[0].clientY);});
-    document.body.addEventListener('touchmove', e => {
-      e.preventDefault();
-      this.move(e.touches[0].clientX, e.touches[0].clientY);
-    }, { passive: false });
+    this.elem.addEventListener('touchstart', (ev) => {
+      this.grab(ev.touches[0].clientX, ev.touches[0].clientY);
+    });
+
+    document.body.addEventListener('touchmove', (ev) => {
+      ev.preventDefault();
+      this.move(ev.touches[0].clientX, ev.touches[0].clientY);
+    }, {
+      passive: false
+    });
+
     document.body.addEventListener('touchend', this.release.bind(this));
   }
 }

@@ -45,35 +45,9 @@ export default class TileContainer {
      * @type {string[]}
      */
     this.availableLetters = [
-      'C',
-      'E',
-      'H',
-      'L',
-      'L',
-      'O',
-      'O',
-      'P',
-      'F',
-      'E',
-      'U',
-      'N',
-      'I',
-      'E',
-      'K',
-      'A',
-      'E',
-      'C',
-      'O',
-      'E',
-      'J',
-      'M',
-      'Q',
-      'A',
-      'Z',
-      'E',
-      'W',
-      'B',
-      'G'
+      'C', 'E', 'H', 'L', 'L', 'O', 'O', 'N', 'D',
+      'E', 'P', 'F', 'E', 'U', 'N', 'I', 'E', 'K',
+      'A', 'E', 'C', 'O', 'E', 'J', 'M', 'Q', 'A', 'Z', 'E', 'W'
     ];
 
     this.givenLetters = 0;
@@ -106,7 +80,7 @@ export default class TileContainer {
     targetRow.setAttribute('data-letter', letter);
     targetRow.setAttribute('data-rotation', (Math.random() - 0.5) * 20);
 
-    let tile = new Tile(letter, this.pointList[letter], notFreeRow, freeRow);
+    let tile = new Tile(letter, notFreeRow, freeRow);
     tile.targetRow = targetRow;
     tile.setPosition(lettersContainerPosition.left, lettersContainerPosition.top, 0, 0);
     this.tilesContainer.appendChild(tile.elem);

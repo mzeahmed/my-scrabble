@@ -6,7 +6,7 @@ export default class StartScrabble {
     this.board = new Board();
     this.tileContiner = new TileContainer();
     this.tiles = [];
-    this.displayedPoint = document.getElementById('points');
+    this.displayPoint = document.getElementById('points');
     this.start();
     window.addEventListener('resize', this.render.bind(this));
   }
@@ -28,7 +28,7 @@ export default class StartScrabble {
     /**
      * @see https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Promise
      */
-    return new Promise(response => {
+    return new Promise((response) => {
       setTimeout(response, 300);
     });
   }
@@ -69,7 +69,7 @@ export default class StartScrabble {
         points += this.tileContiner.pointList[letter];
       }
     }
-    this.displayedPoint.innerText = points;
+    this.displayPoint.textContent = points;
   }
 
   getDistance (x1, x2, y1, y2) {
