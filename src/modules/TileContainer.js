@@ -1,15 +1,17 @@
+import Tile from './Tile';
+
 export default class TileContainer {
   constructor () {
     this.tilesContainer = document.getElementById('tiles');
-    this.letters = document.querySelector('#letters');
-    this.rows = Array.from(document.querySelectorAll('#tile_container>.row'));
+    this.letters = document.querySelector('#tile_container > #letters');
+    this.rows = Array.from(document.querySelectorAll('#tile_container .row')).reverse();
 
     /**
-     * Nombre de points par lettre
+     * Nombre de pointList par lettre
      *
      * @type {{}}
      */
-    this.points = {
+    this.pointList = {
       A: 1,
       B: 3,
       C: 3,
@@ -80,7 +82,7 @@ export default class TileContainer {
   /**
    * @param notFreeRow
    * @param freeRow
-   * @returns {null}
+   * @returns {Tile|null}
    */
   giveTile (notFreeRow, freeRow) {
     if (this.givenLetters >= this.availableLetters.length) {
@@ -104,6 +106,15 @@ export default class TileContainer {
     targetRow.setAttribute('data-letter', letter);
     targetRow.setAttribute('data-rotation', (Math.random() - 0.5) * 20);
 
+    let tile = new Tile(letter, this.pointList[letter], notFreeRow, freeRow);
+    tile.targetRow = targetRow;
+    tile.setPosition(lettersContainerPosition.left, lettersContainerPosition.top, 0, 0);
+    this.tilesContainer.appendChild(tile.elem);
+    tile.setTransition(true);
+    tile.setPositionToTargetRow();
+    this.givenLetters++;
+
+    return tile;
   }
 
   /**

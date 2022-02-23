@@ -5,7 +5,7 @@ export default class Board {
     this.boardInit();
     this.boardRender();
   }
-  
+
   boardInit () {
     this.fields = [];
     let fieldNum = Math.pow(this.rowLength, 2);
@@ -38,5 +38,51 @@ export default class Board {
     }
 
     this.rowSize = this.fields[0].getBoundingClientRect().width;
+  }
+
+  /**
+   * On recupere les lettres
+   * @returns {*[]}
+   */
+  getWords () {
+    let words = []
+
+    // rangée
+    for (let row = 0; row < this.rowLength; row++) {
+      let word = ''
+      for (let column = 0; column < this.rowLength; column++) {
+        let field = this.fields[row * this.rowLength + column]
+        let letter = field.getAttribute('data-letter')
+        if (letter)
+          word += letter
+        else {
+          if (word.length >= 2)
+            words.push(word)
+          word = ''
+        }
+      }
+      if (word.length >= 2)
+        words.push(word)
+    }
+
+    // colonne
+    for (let column = 0; column < this.rowLength; column++) {
+      let word = ''
+      for (let row = 0; row < this.rowLength; row++) {
+        let field = this.fields[column + row * this.rowLength]
+        let letter = field.getAttribute('data-letter')
+        if (letter)
+          word += letter
+        else {
+          if (word.length >= 2)
+            words.push(word)
+          word = ''
+        }
+      }
+      if (word.length >= 2)
+        words.push(word)
+    }
+
+    return words
   }
 }
